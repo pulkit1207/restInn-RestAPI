@@ -20,11 +20,13 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
+	// Getting All Users
 	@GetMapping("/users")
 	public ResponseEntity<List<UserModel>> getUsers() {
 		return new ResponseEntity<List<UserModel>>(userService.getUsers(), HttpStatus.OK);
 	}
 
+	// Getting user by id
 	@GetMapping("/users/{userId}")
 	public ResponseEntity<UserModel> getAUser(@PathVariable String userId) {
 		if (null != userService.getAUser(userId)) {
@@ -34,6 +36,7 @@ public class UserController {
 		}
 	}
 
+	// Creating a User
 	@PostMapping("/users")
 	public ResponseEntity<UserModel> createUser(@RequestBody UserModel user) {
 		return new ResponseEntity<UserModel>(userService.addUser(user), HttpStatus.CREATED);

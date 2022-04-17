@@ -80,7 +80,7 @@ public class PropertyController {
 		}
 	}
 
-	// Get by Title Or Resort
+	// Get by Title Or Type
 	@GetMapping("/properties/search")
 	public ResponseEntity<List<Property>> getAllByType(@RequestParam(required = false) String title,
 			@RequestParam(required = false) String type) {
