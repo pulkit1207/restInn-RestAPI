@@ -53,4 +53,8 @@ public class UserService implements UserDetailsService {
 		return new User(userEmail, password, new ArrayList<>());
 	}
 
+	public UserModel getAUserByEmailId(String email) {
+		return userDao.findByEmail(email);
+	}
+
 }
