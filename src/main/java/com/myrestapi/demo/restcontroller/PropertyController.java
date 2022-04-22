@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.myrestapi.demo.entity.Property;
 import com.myrestapi.demo.service.PropertyService;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class PropertyController {
 
@@ -82,16 +84,47 @@ public class PropertyController {
 
 	// Get by Title Or Type
 	@GetMapping("/properties/search")
-	public ResponseEntity<List<Property>> getAllByType(@RequestParam(required = false) String title,
+	public ResponseEntity<List<Property>> getAllByTitleOrType(@RequestParam(required = false) String title,
 			@RequestParam(required = false) String type) {
 
-		if (propertyService.getPropertiesByType(title, type).size() > 0) {
-			return new ResponseEntity<List<Property>>(propertyService.getPropertiesByType(title, type), HttpStatus.OK);
+		if (propertyService.getPropertiesByTitleOrType(title, type).size() > 0) {
+			return new ResponseEntity<List<Property>>(propertyService.getPropertiesByTitleOrType(title, type),
+					HttpStatus.OK);
 		} else {
-			return new ResponseEntity<List<Property>>(propertyService.getPropertiesByType(title, type),
+			return new ResponseEntity<List<Property>>(propertyService.getPropertiesByTitleOrType(title, type),
 					HttpStatus.NOT_FOUND);
 		}
 
 	}
 
+	// Get by Type
+	@GetMapping("/propertyType/{type}")
+	public ResponseEntity<List<Property>> getAllbyType(@PathVariable String type) {
+		if (propertyService.getPropertiesByType(type).size() > 0) {
+			return new ResponseEntity<List<Property>>(propertyService.getPropertiesByType(type), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<List<Property>>(propertyService.getPropertiesByType(type), HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	// Get Featured posts
+	@GetMapping("/properties/featured")
+	public ResponseEntity<List<Property>> getByBestSeller() {
+		if (propertyService.getPropertiesByFeatured().size() > 0) {
+			return new ResponseEntity<List<Property>>(propertyService.getPropertiesByFeatured(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<List<Property>>(propertyService.getPropertiesByFeatured(),
+					HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@GetMapping("/properties/search/{type}")
+	public ResponseEntity<List<Property>> getAllbySearch(@PathVariable String type) {
+		if (propertyService.getPropertiesByType(type).size() > 0) {
+			return new ResponseEntity<List<Property>>(propertyService.getPropertiesByType(type), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<List<Property>>(propertyService.getPropertiesByType(type), HttpStatus.NOT_FOUND);
+		}
+	}
+	
 }

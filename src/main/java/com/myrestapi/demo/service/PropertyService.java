@@ -45,8 +45,16 @@ public class PropertyService {
 		return propertyDao.findByBestSeller(bestSeller);
 	}
 	
-	public List<Property> getPropertiesByType(String title, String type) {
+	public List<Property> getPropertiesByTitleOrType(String title, String type) {
 		return propertyDao.findByTitleOrType(title, type);
+	}
+	
+	public List<Property> getPropertiesByType(String type){
+		return propertyDao.findByType(type);
+	}
+	
+	public List<Property> getPropertiesByFeatured() {
+		return propertyDao.findByFeaturedIsTrue();
 	}
 
 }

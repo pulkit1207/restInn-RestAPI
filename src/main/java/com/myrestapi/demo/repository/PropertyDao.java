@@ -15,4 +15,7 @@ public interface PropertyDao extends MongoRepository<Property, String> {
 	
 	List<Property> findByTitleOrType(String title, String type);
 
+	List<Property> findByType(String type);
+	
+	List<Property> findByFeaturedIsTrue();
 }
