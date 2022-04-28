@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.myrestapi.demo.entity.UserModel;
 import com.myrestapi.demo.service.UserService;
 
-@CrossOrigin(origins = "https://626ab264c2944e2bda5e587c--astonishing-pegasus-f47bd3.netlify.app")
+@CrossOrigin(origins = "https://restinn-stays.netlify.app")
 @RestController
 public class UserController {
 
