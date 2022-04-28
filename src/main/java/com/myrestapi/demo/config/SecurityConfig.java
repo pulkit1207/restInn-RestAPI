@@ -26,12 +26,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	// Configuring Authorization
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable().authorizeRequests().antMatchers("/users/**").permitAll()
-												.antMatchers("/properties/**").permitAll()
-												.antMatchers("/auth").permitAll()
-												.antMatchers("/propertyType/**").permitAll()
-												.anyRequest().authenticated();
-		
+		http.csrf().disable().authorizeRequests().antMatchers("/users/**").permitAll().antMatchers("/properties/**")
+				.permitAll().antMatchers("/auth").permitAll().antMatchers("/propertyType/**").permitAll().anyRequest()
+				.authenticated();
+
 	}
 
 	// BCrypt

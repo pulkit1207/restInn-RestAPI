@@ -6,14 +6,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.myrestapi.demo.entity.UserModel;
 
-@CrossOrigin(origins = "https://626a2957068b57634a0d62d2--astonishing-pegasus-f47bd3.netlify.app/")
+
 @RestController
 public class AuthController {
 

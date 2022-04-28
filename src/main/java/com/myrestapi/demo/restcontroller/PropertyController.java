@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.myrestapi.demo.entity.Property;
 import com.myrestapi.demo.service.PropertyService;
 
-@CrossOrigin(origins = "https://626a2957068b57634a0d62d2--astonishing-pegasus-f47bd3.netlify.app/")
 @RestController
 public class PropertyController {
 
@@ -106,18 +104,17 @@ public class PropertyController {
 			return new ResponseEntity<List<Property>>(propertyService.getPropertiesByType(type), HttpStatus.NOT_FOUND);
 		}
 	}
-	
+
 	// Get Featured posts
 	@GetMapping("/properties/featured")
 	public ResponseEntity<List<Property>> getByBestSeller() {
 		if (propertyService.getPropertiesByFeatured().size() > 0) {
 			return new ResponseEntity<List<Property>>(propertyService.getPropertiesByFeatured(), HttpStatus.OK);
 		} else {
-			return new ResponseEntity<List<Property>>(propertyService.getPropertiesByFeatured(),
-					HttpStatus.NOT_FOUND);
+			return new ResponseEntity<List<Property>>(propertyService.getPropertiesByFeatured(), HttpStatus.NOT_FOUND);
 		}
 	}
-	
+
 	@GetMapping("/properties/search/{type}")
 	public ResponseEntity<List<Property>> getAllbySearch(@PathVariable String type) {
 		if (propertyService.getPropertiesByType(type).size() > 0) {
@@ -126,5 +123,5 @@ public class PropertyController {
 			return new ResponseEntity<List<Property>>(propertyService.getPropertiesByType(type), HttpStatus.NOT_FOUND);
 		}
 	}
-	
+
 }
