@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.myrestapi.demo.entity.Property;
 import com.myrestapi.demo.service.PropertyService;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://626a2957068b57634a0d62d2--astonishing-pegasus-f47bd3.netlify.app/")
 @RestController
 public class PropertyController {
 
