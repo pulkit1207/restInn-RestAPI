@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.myrestapi.demo.entity.UserModel;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://astonishing-pegasus-f47bd3.netlify.app")
 @RestController
 public class AuthController {
 
