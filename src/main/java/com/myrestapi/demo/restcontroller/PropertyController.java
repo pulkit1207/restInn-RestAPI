@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.myrestapi.demo.entity.Property;
 import com.myrestapi.demo.service.PropertyService;
 
-@CrossOrigin(origins = "https://626ab19a3e47df22e936ecba--astonishing-pegasus-f47bd3.netlify.app/")
+@CrossOrigin(origins = "https://626ab264c2944e2bda5e587c--astonishing-pegasus-f47bd3.netlify.app")
 @RestController
 public class PropertyController {
 
